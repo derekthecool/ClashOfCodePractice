@@ -1,1 +1,1 @@
-mapping_numbers()
+place_letter_in_middle_of_stars()
