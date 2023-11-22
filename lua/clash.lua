@@ -1,1 +1,1 @@
-place_letter_in_middle_of_stars()
+letter_leapfrog()
