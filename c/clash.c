@@ -1,26 +1,45 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-main(void)
-{
-    char input[101];
-    scanf("%[^\n]", input);
 
-    char separator[] = " ";
-    for (char *p = strtok(input, separator); p != NULL; p = strtok(NULL, separator))
+main()
+{
+    char input[999];
+    scanf("%s", input);
+
+    char *p, *l = 0;
+    getdelim(&p, &l, 0xFF, stdin);
+
+    int angle = 0;
+    bool toggle = false;
+
+    char separator[] = " \n";
+    for (char *string_to_split = strtok(p, separator); string_to_split != NULL;
+         string_to_split = strtok(NULL, separator))
     {
-        int number = atoi(p);
-        if(isdigit(p[0]))
+         if(toggle)
+         {
+             toggle = false;
+         }
+         else
+         {
+             toggle = true;
+         }
+
+        angle += atoi(string_to_split);
+        switch (angle)
         {
-             if(number%2==0)
-             {
-                 p = "Buzz";
-             }
-             else
-             {
-                 p = "Lightning";
-             }
+        case 90:
+            puts("SUPPLEMENTARY");
+            break;
+        case 180:
+            puts("COMPLEMENTARY");
+            break;
+        default:
+            puts("NEITHER");
+            break;
         }
-         printf("%s\n",p, number);
     }
-    
+
+    // printf("%s",p);
 }

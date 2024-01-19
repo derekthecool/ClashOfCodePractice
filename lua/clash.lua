@@ -1,5 +1,1 @@
-o=io.read()
-r=o:reverse()
-
-print(tonumber(o)+tonumber(r))
-
+print_chars_from_first_and_second_input_chars()
