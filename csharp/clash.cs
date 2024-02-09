@@ -3,10 +3,13 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-string[] inputs = Console.ReadLine().Split(' ');
-float width = float.Parse(inputs[0]);
-float height = float.Parse(inputs[1]);
-float coef = float.Parse(Console.ReadLine());
+var input=Console.ReadLine();
+int vowelCount = Regex.Matches(input.ToUpper(), @"[AEIOU]").Count();
+for(int i = 0; i <vowelCount; i++){
+     Console.WriteLine(input);
+}
+if (vowelCount == 0)
+{
+  Console.WriteLine($"NONE");
+}
 
-int Answer = Math.Round(Math.Sqrt(width*width + height*height)*coef);
-Console.WriteLine($"{}");

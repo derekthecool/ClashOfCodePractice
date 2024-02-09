@@ -41,5 +41,32 @@ main()
         }
     }
 
+    for(int i = 0; i < 10; i++)
+    {
+        
+    }
+
     // printf("%s",p);
+}
+
+for(int i = 0; i < 10; i++)
+{
+    
+}
+
+if()
+{
+    
+}
+
+else
+{
+    
+    else if()
+    {
+        int MyFunction()
+        {
+            
+        }
+    }
 }
