@@ -5,7 +5,14 @@
 
 int main()
 {
-    char S[101];
-    scanf("%[^\nA-Za-z]", S);
-    printf("%d",strlen(S));
+    int n;
+    scanf("%d", &n);
+    int f;
+    scanf("%d", &f);
+    int answer = n+(f%7);
+     printf("%d",);
+
 }
+
+
+

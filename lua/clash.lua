@@ -1,8 +1,1 @@
-n = tonumber(io.read())
-for i = 1, n do
-    if i%2~=0 then
-        o = (o or nil) + i
-    end
-end
-print(o)
-
+print(math.ceil((math.sqrt(3)/4)*io.read'n'^2))
