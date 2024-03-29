@@ -1,34 +1,13 @@
 -- Create any number of solutions here to test the code
 local function testSolutions(input)
-    io.stderr:write(string.format('input:\n%s\n', input))
+    -- Debug print the input here
+    io.stderr:write(string.format('input:\n%s\n\n', input))
+
+    -- Fill is table with as many solutions as possible.
+    -- Each function should take one input which will be the string of all stdin
+    -- lines from io.read('a')
     local solutions = {
-        function(x)
-            local S = 0
-            local b
-            for a in x:gmatch('.') do
-                if not b then
-                    b = a
-                elseif a ~= b then
-                    S = S + 1
-                    b = a
-                end
-            end
-            return S
-        end,
 
-        function(x)
-            local changes = 0
-            local lastDigit = x:sub(1, 1)
-
-            for digit in x:gmatch('(%d)') do
-                if digit ~= lastDigit then
-                    changes = changes + 1
-                    lastDigit = digit
-                end
-            end
-
-            return changes
-        end,
     }
 
     -- Variable to store the expected result (initially nil)
