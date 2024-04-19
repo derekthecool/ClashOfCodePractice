@@ -1,15 +1,19 @@
 -- Create any number of solutions here to test the code
 local function testSolutions(input)
     -- Debug print the input here
-    io.stderr:write(string.format('input:\n%s\n\n', table.concat(input, '\n')))
+    local print_input = input
+    if INDEXED_INPUT then
+        print_input = table.concat(input, '\n')
+    end
+
+    io.stderr:write(string.format('input:\n%s\n\n', print_input))
 
     -- Fill is table with as many solutions as possible.
     -- Each function should take one input which will be the string of all stdin
     -- lines from io.read('a')
     local solutions = {
         function(a)
-            print(a[1])
-            print(a[2])
+            -- Solution here
         end,
     }
 
@@ -40,8 +44,17 @@ local function testSolutions(input)
 end
 
 -- Run input through the multi-solution test runner
-local lines = {}
-for line in io.lines() do
-    table.insert(lines, line)
+
+-- Choose with this boolean if you want to read input into a table or as a
+-- single string
+INDEXED_INPUT = false
+
+local lines = io.read('a')
+if indexed_input then
+    lines = {}
+    for line in io.lines() do
+        table.insert(lines, line)
+    end
 end
+
 testSolutions(lines)
