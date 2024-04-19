@@ -1,13 +1,16 @@
 -- Create any number of solutions here to test the code
 local function testSolutions(input)
     -- Debug print the input here
-    io.stderr:write(string.format('input:\n%s\n\n', input))
+    io.stderr:write(string.format('input:\n%s\n\n', table.concat(input, '\n')))
 
     -- Fill is table with as many solutions as possible.
     -- Each function should take one input which will be the string of all stdin
     -- lines from io.read('a')
     local solutions = {
-
+        function(a)
+            print(a[1])
+            print(a[2])
+        end,
     }
 
     -- Variable to store the expected result (initially nil)
@@ -37,4 +40,8 @@ local function testSolutions(input)
 end
 
 -- Run input through the multi-solution test runner
-testSolutions(io.read('a'))
+local lines = {}
+for line in io.lines() do
+    table.insert(lines, line)
+end
+testSolutions(lines)
