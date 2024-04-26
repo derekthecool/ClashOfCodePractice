@@ -13,7 +13,47 @@ local function testSolutions(input)
     -- lines from io.read('a')
     local solutions = {
         function(a)
-            -- Solution here
+            local number = 1
+            for i = 1, tonumber(a) do
+                number = number * i
+            end
+            return number
+        end,
+
+        function(a)
+            local function factorial(n)
+                if n == 0 then
+                    return 1
+                else
+                    return n * factorial(n - 1)
+                end
+            end
+
+            return factorial(tonumber(a))
+        end,
+
+        function(a)
+            local function factorial(n)
+                if n == 0 then
+                    return 1
+                else
+                    return n * factorial(n - 1)
+                end
+            end
+
+            local fact = {tonumber(a)}
+            local factMetatable = {
+                -- unm  == unary minus
+                __unm = function(t)
+                    return factorial(t[1])
+                end,
+            }
+
+            -- Set the metatable
+            setmetatable(fact, factMetatable)
+
+            -- Call the function from the metatable by running the unary minus operator
+            return -fact
         end,
     }
 
