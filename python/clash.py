@@ -1,12 +1,7 @@
-# most important line of ALL!
-import re
+count = int(input())
 
-input = input()
+if count % 2 == 0 or count < 0:
+    print("Error")
 
-realVowelCount = len(re.findall(r'[aeiou]', input.lower()))
-
-for i in range(realVowelCount):
-    print(input)
-
-if realVowelCount == 0:
-    print('NONE')
+# Else build the string
+1

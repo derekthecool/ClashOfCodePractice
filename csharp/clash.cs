@@ -1,15 +1,5 @@
-using System.Collections.Generic;
 using System;
-using System.Linq;
 using System.Text.RegularExpressions;
-
-var input=Console.ReadLine();
-int vowelCount = Regex.Matches(input.ToUpper(), @"[AEIOU]").Count();
-for(int i = 0; i <vowelCount; i++){
-     Console.WriteLine(input);
-}
-if (vowelCount == 0)
-{
-  Console.WriteLine($"NONE");
-}
-
+var a=Int64.Parse(Console.ReadLine());
+var b=Int64.Parse(Console.ReadLine());
+Console.WriteLine(Regex.Replace($"{a-b}{a*b}{a+b}","^0+$","0"));
