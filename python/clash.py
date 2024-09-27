@@ -1,5 +1,2 @@
-def A():
-   return map(int,input().split())
-
-s = map(lambda x:x,zip(A(),A()))
-print(list(s))
+import re
+print(*(map(len,list(re.findall(r'\S+',input())))))
