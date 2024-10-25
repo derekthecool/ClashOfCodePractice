@@ -3,9 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *solution1(char **inputLines)
+char *solution1(char **lines)
 {
-    return strdup("Test test test\n");
+// 165 chars
+int c=atoi(lines[0]);char*a=malloc(999),*b=malloc(999);for(int i=0;i<c;i++){strncat(a,lines[1+i]+i,1);strncat(b,lines[1+i]+c-i-1,1);}sprintf(a,"%s %s",a,b);return a;
 }
 
 char *solution2(char **inputLines)
@@ -16,7 +17,7 @@ char *solution2(char **inputLines)
 // Array of function pointers to solutions
 // To quickly get all function names and load into this array run this lua file
 // luafile ./get-all-multi-solution-function-names.lua
-char *(*solutions[])(char **) = {solution1, solution2};
+char *(*solutions[])(char **) = {solution1, /* solution2 */};
 
 // Splits input into lines and executes each solution function
 void testSolutions(char *input)
