@@ -1,17 +1,43 @@
+#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-char *solution1(char **lines)
+char *solution1(char **l)
 {
-// 165 chars
-int c=atoi(lines[0]);char*a=malloc(999),*b=malloc(999);for(int i=0;i<c;i++){strncat(a,lines[1+i]+i,1);strncat(b,lines[1+i]+c-i-1,1);}sprintf(a,"%s %s",a,b);return a;
+    int count = atoi(*(l++));
+    double lowest = 1000000;
+    char name_of_lowest[100];
+    for (int i = 0; i < count; i++)
+    {
+        char *string = l[i];
+        char separator[] = " ";
+        char *p = strtok(string, separator);
+
+        char item[100];
+        strcpy(item, p);
+        int weight = atoi(strtok(NULL, separator));
+        int price = atoi(strtok(NULL, separator));
+        double current = (double)price / (double)weight;
+        if (current < lowest)
+        {
+            lowest = current;
+            memcpy(name_of_lowest, item, 100);
+        }
+    }
+    return strdup(name_of_lowest);
 }
 
-char *solution2(char **inputLines)
+char *solution2(char **l)
 {
-    return strdup("Test test test\n");
+    char *letters = malloc(sizeof(char) * 9999);
+    int index = 0;
+    for (int i = 2; i < strlen(l[0]); i += 3)
+    {
+        letters[index++] = l[0][i];
+    }
+    return letters;
 }
 
 // Array of function pointers to solutions
