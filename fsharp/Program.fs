@@ -1,1 +1,5 @@
-﻿System.Console.ReadLine().ToUpper()|>Seq.map float|>Seq.average|>fun x->printfn"%c"(char x)
+﻿open System
+let a=Console.ReadLine
+let m=a()|>int
+let y=a()|>int
+Console.WriteLine(DateTime.DaysInMonth(y,m))

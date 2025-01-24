@@ -1,6 +1,34 @@
 import 'dart:io';
-main(){
-var W=stdin.readLineSync()!.split(' ').map(int.parse).toList();
-var s=(W[0]+W[1])*4,c=2,x=W.reduce((a,b)=>a+b*++c);
-print('$s $x ${s-x>9?"No":"Yes"}');
+import 'dart:math';
+
+main() {
+  final lines = 6;
+  var c = 1;
+  stderr.writeln('Lines: $lines, c: $c');
+
+  print(List.generate(lines, (x) => List.generate(x + 1, (_) => c++).join(' '))
+      .join('\n'));
+
+  print(
+    Iterable.generate(lines)
+        .map((x) => List.generate(x + 1, (_) => c++).join(' '))
+        .join('\n'),
+  );
+
+  print(
+      [for(int x = 0; x < 10; x++) x]
+      );
+
+  var x = List.generate(5, (x) => x);
+  var y = Iterable.generate(5).toList();
+  print(x.runtimeType);
+  print(y.runtimeType);
+
+  print(
+      Iterable.generate( 100)
+    );
+
+  print([
+    for (int x = 0; x < lines; x++) [for (int _ = 0; _ <= x; _++) c++].join(' ')
+  ].join('\n'));
 }

@@ -1,2 +1,1 @@
-import re
-print(*(map(len,list(re.findall(r'\S+',input())))))
+import re;print(re.sub(r'(.)\1+',r'\1',input()))
