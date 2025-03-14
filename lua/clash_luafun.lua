@@ -928,13 +928,9 @@ for luafun_key, luafun_value in pairs(a) do
     _G[luafun_key] = luafun_value
 end
 
-local number = io.read('n')
+local number = io.read()
+local numbers = zip(range(0,#number-1), number)
+local odd_sum = numbers:map(function(a)return tonumber(a)end):filter(function(a) return a % 2 ~= 0 end):sum()
+io.stderr:write(string.format("odd_sum: %d\n",odd_sum))
+print(math.abs(x))
 
-print(table.concat(
-    range(number, 1, -1)
-        :map(function(index)
-            return ('+'):rep(number - index) .. table.concat(range(index):totable(), '')
-        end)
-        :totable(),
-    '\n'
-))
