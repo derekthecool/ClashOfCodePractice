@@ -1,0 +1,28 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 21,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "debug-ninja",
+            "displayName": "Debug with Ninja",
+            "generator": "Ninja",
+            "description": "Use Ninja and Clang or GCC in Debug mode",
+            "binaryDir": "${sourceDir}/build/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "build-debug-ninja",
+            "configurePreset": "debug-ninja"
+        }
+    ],
+    "testPresets": []
+}
