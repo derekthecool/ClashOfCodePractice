@@ -1,5 +1,8 @@
 ﻿open System
+open System.Text.RegularExpressions
 let a=Console.ReadLine
-let m=a()|>int
-let y=a()|>int
-Console.WriteLine(DateTime.DaysInMonth(y,m))
+Regex.Matches(a(),@"\d")
+|>Seq.cast<Match>
+|>Seq.map(fun x->x.Value)
+|>fun x->String.Join(a(),x)
+|>printfn"%s"

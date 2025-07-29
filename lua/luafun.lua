@@ -927,12 +927,3 @@ setmetatable(a, {
 for luafun_key, luafun_value in pairs(a) do
     _G[luafun_key] = luafun_value
 end
-
-local number = tonumber(io.read())
-local divisor = tonumber(io.read())
-
-print(#range(number)
-:map(function(I) return tonumber(io.read()) end)
-:filter(function(I) return I % divisor == 0 end)
-:totable()
-)

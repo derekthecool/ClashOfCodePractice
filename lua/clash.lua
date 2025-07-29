@@ -1,11 +1,16 @@
-h,m,s,PM = io.read():match('(%d+):(%d+):(%d+)(..)')
-h = tonumber(h)
-m = tonumber(m)
-s = tonumber(s)
-io.stderr:write(string.format("%d,%d,%d, %s\n",h,m,s,PM))
-if PM == "PM" and h ~= 12 then
-    h = h + 12
-end
-io.stderr:write(string.format("%d,%d,%d, %s\n",h,m,s,PM))
+io.read()
 
-print(string.format("%02d:%02d:%02d",h,m,s))
+output = {}
+
+for user in io.lines() do
+    io.stderr:write(string.format('%s\n', user))
+    if user:lower():match('anonymous') or select(2, user:gsub('_', '')) > 1 or user:match('[^a-zA-Z0-9_]') then
+        table.insert(output, user)
+    end
+end
+
+if next(output) then
+    print(table.concat(output, ' '))
+else
+    print('Cleared')
+end
