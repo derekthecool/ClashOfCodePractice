@@ -13,5 +13,8 @@ set(MainSource "clash.cpp")
 #Set project name and specify C compiler
 project(${ProjectBasename} CXX)
 
+# C:\Users\DerekLomax\scoop\apps\gcc\current\include\c++\13.2.0
+include_directories(SYSTEM "C:/Users/DerekLomax/scoop/apps/gcc/current/include/c++/13.2.0")
+
 #Set executable
 add_executable(${ProjectBasename} ${MainSource})

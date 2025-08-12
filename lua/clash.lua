@@ -1,16 +1,20 @@
-io.read()
+-- blah!
+-- words = {}
+-- for word in io.read():gmatch('%S+') do
+--     table.insert(words, word)
+-- end
+--
+-- for _, word in pairs(words) do
+--     local new_word = ""
+--     for i=1, #word do
+--         if i % 2 == 0 then
+--             new_word = new_word
+--         end
+--
+--     end
+-- end
 
-output = {}
+-- double blah
+-- print((io.read():gsub('(%w)(%w)', function(a,b) return a .. string.char(b:byte()+1)end)))
 
-for user in io.lines() do
-    io.stderr:write(string.format('%s\n', user))
-    if user:lower():match('anonymous') or select(2, user:gsub('_', '')) > 1 or user:match('[^a-zA-Z0-9_]') then
-        table.insert(output, user)
-    end
-end
-
-if next(output) then
-    print(table.concat(output, ' '))
-else
-    print('Cleared')
-end
+print((io.read():gsub('.', { ['A'] = 'V', ['E'] = 'X', ['O'] = 'X', ['U'] = 'V' })))

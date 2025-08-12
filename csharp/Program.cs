@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
+using System.Text.RegularExpressions;
 using System.Linq;
-var b=string.Join("",Enumerable.Range(0,Convert.ToInt32(Console.ReadLine())).Select(x => (char)Convert.ToInt32(Console.ReadLine(), 16)));
-if (b.Length%2!=0)
-{
-var c = b.ToCharArray();
-Array.Reverse(c);
-b=new string(c);
-}
 
-Console.WriteLine(b);
+Regex.Matches(Console.ReadLine(), @"\d")
+           .Select(m => int.Parse(m.Value))
+           .Where(n => n != 0)
+           .Select(n => String.Join("", Enumerable.Repeat(n, n)))
+           .ToList()
+           .ForEach(Console.Write);
